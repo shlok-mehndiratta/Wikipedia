@@ -10,8 +10,10 @@
     <ul>
         {% for entry in entries %}
             <li>
-                <a href="{% url 'search' title=entry %}">{{ entry }}</a>
+                <a href="{% url 'entry' title=entry %}">{{ entry }}</a>
             </li>
+            {% empty %}
+                <li>No Pages</li>
         {% endfor %}
     </ul>
 
