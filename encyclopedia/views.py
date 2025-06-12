@@ -13,7 +13,7 @@ def entry(request, title):
     content = util.get_entry(title)
     if content is None:
         return render(request, "encyclopedia/error.html", {
-            "message": f"Entry '{title}' does not exist.", 
+            "message": f"\"Entry '{title}' does not exist.\"",
             'title': title
         })
     return render(request, "encyclopedia/entry.html", {
@@ -41,3 +41,23 @@ def search(request):
                 "entries": recommendation, 
                 'title': entry_search
             }) 
+
+def new_page(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/new_page.html")
+    if request.method == "POST":
+        title = request.POST['title']
+        content = request.POST['content']
+        if not title or not content:
+            return render(request, "encyclopedia/error.html", {
+                "message": "\"Title and content cannot be empty.\""
+            })
+        if util.get_entry(title) is not None:
+            return render(request, "encyclopedia/error.html", {
+                "message": f"\"An entry with the title '{title}' already exists.\""
+            })
+        util.save_entry(title, content)
+        return render(request, "encyclopedia/entry.html", {
+            "entry": markdown.Markdown().convert(content), 
+            'title': title
+        })

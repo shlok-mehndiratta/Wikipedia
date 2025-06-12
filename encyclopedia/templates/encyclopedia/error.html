@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block body %}
-
-    <h1>{{ title }}</h1>        
-    {{ message | safe }}
+    <div style="color: red;">
+    <h1>Error</h1>
+    <h2>{{ message | safe }}</h2>
+    </div>
 
 {% endblock %}
