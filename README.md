@@ -85,14 +85,17 @@ wiki/
 
 1. **Clone the Repository**
    ``` bash
-   git clone https://github.com/yourusername/wiki-encyclopedia.git
-   cd wiki-encyclopedia 
+   git clone https://github.com/shlok-mehndiratta/wiki-encyclopedia.git
+   cd wiki-encyclopedia
+   ```
 2. **Install Dependencies**
     ``` bash
     pip install -r requirements.txt
+    ```
 3. **Run the Django Development Server**
     ``` bash
     python manage.py runserver
+    ```
 4. **Open your browser and navigate to:**
     ```bash
     http://127.0.0.1:8000
