@@ -1,5 +1,6 @@
 from django.shortcuts import render
-import markdown
+from markdown2 import Markdown
+import random
 
 from . import util
 
@@ -18,13 +19,13 @@ def entry(request, title):
         })
     return render(request, "encyclopedia/entry.html", {
         "content": content,
-        "entry": markdown.Markdown().convert(content), 
-        'title': title
+        "entry": Markdown().convert(content), 
+        "title": title
     })
 
 def search(request):
-    if request.method == "POST":
-        entry_search = request.POST['q']
+    if request.method == "GET":
+        entry_search = request.GET['q']
         all_entries = util.list_entries()
         recommendation = []
         for entry in all_entries:
@@ -34,13 +35,14 @@ def search(request):
         if len(recommendation) == 1 and recommendation[0].lower() == entry_search.lower():
             content = util.get_entry(recommendation[0])
             return render(request, "encyclopedia/entry.html", {
-                "entry": markdown.Markdown().convert(content), 
-                'title': entry_search
+                "content": content,
+                "entry": Markdown().convert(content), 
+                "title": recommendation[0]
             })
         else:
             return render(request, "encyclopedia/index.html", {
                 "entries": recommendation, 
-                'title': entry_search
+                'title': recommendation[0]
             }) 
 
 def new_page(request):
@@ -59,8 +61,9 @@ def new_page(request):
             })
         util.save_entry(title, content)
         return render(request, "encyclopedia/entry.html", {
-            "entry": markdown.Markdown().convert(content), 
-            'title': title
+            "content": content,
+            "entry": Markdown().convert(content), 
+            "title": title
         })
     
 def edit(request):
@@ -68,7 +71,7 @@ def edit(request):
         title= request.GET['title']
         content = request.GET['content']
         return render(request, "encyclopedia/edit_page.html", {
-            'entry': content ,
+            'content': content,
             'title': title
         })
     if request.method == 'POST':
@@ -77,6 +80,16 @@ def edit(request):
         util.save_entry(title, content)
         return render(request, 'encyclopedia/entry.html', {
             "content": content,
-            "entry": markdown.Markdown().convert(content),
+            "entry": Markdown().convert(content),
             "title": title
         } )
+    
+def random_page(request):
+    all_entries = util.list_entries()
+    rand_num = random.randint(0, len(all_entries)-1)
+    content = util.get_entry(all_entries[rand_num])
+    return render(request, 'encyclopedia/entry.html', {
+        "content": content,
+        "entry": Markdown().convert(content),
+        "title": all_entries[rand_num]
+    })

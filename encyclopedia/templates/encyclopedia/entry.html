@@ -6,7 +6,7 @@
 
 {% block body %} 
     <div style="position: absolute;">
-    {{ entry | safe}}
+    {{entry|safe}}
     </div>
     <form action="{% url 'edit_page' %}" method="GET">
         {% csrf_token %}
