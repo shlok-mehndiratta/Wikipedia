@@ -13,7 +13,7 @@ This project implements a Wiki-like encyclopedia using Django, where users can c
 
 - **wiki/**: Django project directory.
   - **encyclopedia/**: Django app for managing encyclopedia entries.
-    - **urls.py**: URL routing for the app.
+    - ``**urls.py**``: URL routing for the app.
     - **views.py**: Defines views for rendering pages.
     - **util.py**: Utility functions for interacting with encyclopedia entries.
         - `list_entries()` → get all page titles
