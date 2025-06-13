@@ -61,16 +61,16 @@ This project replicates a simplified version of Wikipedia. Each encyclopedia ent
 ```bash
 wiki/
 ├── encyclopedia/
-| ├── static/ # Static files (CSS) for the app.
+│ ├── static/ # Static files (CSS) for the app.
 │ ├── entries/ # Markdown files (content storage)
 │ ├── templates/encyclopedia # HTML templates
-|   ├── layout.html → Common layout with sidebar and other common features.
-|   |── index.html → Displays a list of all encyclopedia entries.
-|   |── entry.html → Displays detailed content of a specific entry.
-|   |── error.html → Displays error for invalid entries or inputs.
-|   |── new_page.html → Form for creating a new encyclopedia entry.
-|   |── edit_page.html → Form for editing an existing entry.
-|
+│   ├── layout.html → Common layout with sidebar and other common features.
+│   ├── index.html → Displays a list of all encyclopedia entries.
+│   ├── entry.html → Displays detailed content of a specific entry.
+│   ├── error.html → Displays error for invalid entries or inputs.
+│   ├── new_page.html → Form for creating a new encyclopedia entry.
+│   ├── edit_page.html → Form for editing an existing entry.
+│
 │ ├── views.py # Main view logic
 │ ├── urls.py # Route definitions
 │ ├── util.py # Helper functions for file handling
@@ -108,7 +108,7 @@ wiki/
 - Add rich Markdown preview/editing support
 
 ### 📄 License
-This project is licensed under the MIT License. See LICENSE for more details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
 
 
 ---
