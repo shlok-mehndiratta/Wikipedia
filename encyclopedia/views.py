@@ -17,6 +17,7 @@ def entry(request, title):
             'title': title
         })
     return render(request, "encyclopedia/entry.html", {
+        "content": content,
         "entry": markdown.Markdown().convert(content), 
         'title': title
     })
@@ -61,3 +62,21 @@ def new_page(request):
             "entry": markdown.Markdown().convert(content), 
             'title': title
         })
+    
+def edit(request):
+    if request.method == 'GET':
+        title= request.GET['title']
+        content = request.GET['content']
+        return render(request, "encyclopedia/edit_page.html", {
+            'entry': content ,
+            'title': title
+        })
+    if request.method == 'POST':
+        title= request.POST['title']
+        content = request.POST['updated_content']
+        util.save_entry(title, content)
+        return render(request, 'encyclopedia/entry.html', {
+            "content": content,
+            "entry": markdown.Markdown().convert(content),
+            "title": title
+        } )

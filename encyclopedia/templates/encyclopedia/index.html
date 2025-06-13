@@ -13,7 +13,7 @@
                 <a href="{% url 'entry' title=entry %}">{{ entry }}</a>
             </li>
             {% empty %}
-                <li>No Pages</li>
+                <li>No Pages with "{{ title }}"</li>
         {% endfor %}
     </ul>
 
