@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit: {{ title }} 
+{% endblock %}
+
+{% block body %} 
+    <form action="{% url 'edit_page' %}" method="post" style="padding-top: 30px;">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+    <label class="input-group-text" id="basic-addon1" for="title">Title : &nbsp;<b>{{title}}</b></label>
+    </div>
+    <input type="hidden" name="title" value="{{title}}">
+
+    <div class="form-floating">
+    <label class="input-group-text" for="floatingTextarea2" style="max-width: 185px;">Markdown Content</label>
+    
+    <textarea class="form-control" name="updated_content" placeholder="Add Markdown content here..." id="floatingTextarea2" style="height: 250px">{{content |default_if_none:""}}</textarea>
+    </div>
+    <div class="col-auto" style="padding-top: 20px;">
+    <button type="submit" class="btn btn-primary" >Save Page</button>
+    </div>  
+</form>
+{% endblock %}

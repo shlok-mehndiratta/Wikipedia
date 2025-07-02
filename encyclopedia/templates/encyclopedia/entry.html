@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }} 
+{% endblock %}
+
+{% block body %} 
+    <div style="position: absolute;">
+    {{entry|safe}}
+    </div>
+    <form action="{% url 'edit_page' %}" method="GET">
+        {% csrf_token %}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="position: relative;">
+        <input type="hidden" name="title" value="{{title}}">
+        <input type="hidden" name="content" value="{{content}}">
+        <button class="btn btn-primary" type="submit" style="margin: 25px;" >Edit Page</button>
+    </div>  
+    </form>
+{% endblock %}
