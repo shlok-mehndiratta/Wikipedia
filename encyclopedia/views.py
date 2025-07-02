@@ -10,6 +10,7 @@ def index(request):
         "entries": util.list_entries()
     })
 
+
 def entry(request, title):
     content = util.get_entry(title)
     if content is None:
@@ -22,6 +23,7 @@ def entry(request, title):
         "entry": Markdown().convert(content), 
         "title": title
     })
+
 
 def search(request):
     if request.method == "GET":
@@ -42,8 +44,9 @@ def search(request):
         else:
             return render(request, "encyclopedia/index.html", {
                 "entries": recommendation, 
-                'title': recommendation[0]
+                'title': recommendation[0] if len(recommendation) > 0 else entry_search
             }) 
+
 
 def new_page(request):
     if request.method == "GET":
@@ -84,6 +87,7 @@ def edit(request):
             "title": title
         } )
     
+
 def random_page(request):
     all_entries = util.list_entries()
     rand_num = random.randint(0, len(all_entries)-1)
