@@ -1,4 +1,4 @@
-# Wiki Encyclopedia 🧠
+# Wiki Encyclopedia 
 
 A Markdown-based encyclopedia web application built with Django, allowing users to view, search, create, and edit knowledge entries through a clean, structured interface.
 
@@ -16,32 +16,32 @@ This project replicates a simplified version of Wikipedia. Each encyclopedia ent
 
 ## 📌 Key Features
 
-### 📄 Entry Page
+### Entry Page
 - Route: `/wiki/<title>`
 - Displays the content of an encyclopedia entry in HTML (converted from Markdown).
 - Returns a custom error page if the entry does not exist.
 
-### 🏠 Index Page
+### Index Page
 - Displays all existing encyclopedia entries.
 - Each title links directly to its detailed entry page.
 
-### 🔎 Search
+### Search
 - Sidebar search box for quick access.
 - If the query matches an existing title (case-insensitive), user is redirected to that page.
 - Otherwise, a search results page is shown with all matching titles (substring search).
 
-### ➕ Create New Page
+### Create New Page
 - Allows creation of new entries by entering a title and Markdown content.
 - Prevents duplication: shows an error if the title already exists.
 
-### ✏️ Edit Page
+### Edit Page
 - Provides an editable form pre-filled with existing Markdown content.
 - Saves changes and redirects the user back to the entry page.
 
-### 🎲 Random Page
+### Random Page
 - Loads a random encyclopedia entry from the collection.
 
-### ✅ Markdown Rendering
+### Markdown Rendering
 - Markdown files are converted into HTML using the `markdown2` Python library.
 
 ---
@@ -61,22 +61,22 @@ This project replicates a simplified version of Wikipedia. Each encyclopedia ent
 ```bash
 wiki/
 ├── encyclopedia/
-| ├── static/ # Static files (CSS) for the app.
+│ ├── static/ # Static files (CSS) for the app.
 │ ├── entries/ # Markdown files (content storage)
 │ ├── templates/encyclopedia # HTML templates
-|   ├── layout.html → Common layout with sidebar and other common features.
-|   |── index.html → Displays a list of all encyclopedia entries.
-|   |── entry.html → Displays detailed content of a specific entry.
-|   |── error.html → Displays error for invalid entries or inputs.
-|   |── new_page.html → Form for creating a new encyclopedia entry.
-|   |── edit_page.html → Form for editing an existing entry.
-|
+│   ├── layout.html → Common layout with sidebar and other common features.
+│   ├── index.html → Displays a list of all encyclopedia entries.
+│   ├── entry.html → Displays detailed content of a specific entry.
+│   ├── error.html → Displays error for invalid entries or inputs.
+│   ├── new_page.html → Form for creating a new encyclopedia entry.
+│   ├── edit_page.html → Form for editing an existing entry.
+│
 │ ├── views.py # Main view logic
 │ ├── urls.py # Route definitions
 │ ├── util.py # Helper functions for file handling
-        - list_entries() → get all page titles
-        - get_entry(title) → get content of a page
-        - save_entry(title, content) → save a new or edited page
+│       - list_entries( ) → get all page titles
+│       - get_entry(title) → get content of a page
+│       - save_entry(title, content) → save a new or edited page
 ├── manage.py
 ```
 ---
@@ -85,14 +85,17 @@ wiki/
 
 1. **Clone the Repository**
    ``` bash
-   git clone https://github.com/yourusername/wiki-encyclopedia.git
-   cd wiki-encyclopedia 
+   git clone https://github.com/shlok-mehndiratta/wiki-encyclopedia.git
+   cd wiki-encyclopedia
+   ```
 2. **Install Dependencies**
     ``` bash
     pip install -r requirements.txt
+    ```
 3. **Run the Django Development Server**
     ``` bash
     python manage.py runserver
+    ```
 4. **Open your browser and navigate to:**
     ```bash
     http://127.0.0.1:8000
@@ -108,8 +111,7 @@ wiki/
 - Add rich Markdown preview/editing support
 
 ### 📄 License
-This project is licensed under the MIT License. See LICENSE for more details.
-
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for more details.
 
 ---
 ### 🙋‍♂️ Author
