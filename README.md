@@ -13,6 +13,11 @@ This project replicates a simplified version of Wikipedia. Each encyclopedia ent
 - Load a random entry for exploration
 
 ---
+## 📸 Demo Video
+
+[![Watch the demo](https://img.youtube.com/vi/CIhwZK2ItwM/0.jpg)](https://youtu.be/CIhwZK2ItwM)
+
+---
 
 ## 📌 Key Features
 
